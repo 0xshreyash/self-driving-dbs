@@ -125,6 +125,12 @@ Input are a set of queries and the current configuration of the database in term
   * If n = k  possible action: add_index() and drop_index().
   Can even remove the dropping from 2. if too complex to do.
 
+### [Cuttlefish: A Lightweight Primitive for Adaptive Query Processing](https://arxiv.org/pdf/1802.09180.pdf)
+
+Uses MAB to find proper optimisers.
+
+
+
 
 
 
