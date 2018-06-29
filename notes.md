@@ -55,8 +55,8 @@ The primary goal of our project would be to decide on which materialized views (
 Some elaboration:
 
 * Which Materialized views and indices to create. This might be thought of as two separate problems:
-  1. If a set of rows get accessed a lot then should they be indices?
-  2. If a view (collection of rows) gets created a lot through joins or other queries then should they be stored on disk to speed up processing.
+    1. If a set of rows get accessed a lot then should they be indices?
+    2. If a view (collection of rows) gets created a lot through joins or other queries then should they be stored on disk to speed up processing.
   All of this is of course under the given the space constraints (S).
 * Dynamic system - must find a good set of MVs and indices for a initial workload and must also evolve as the workload evolves.
 * Objective - Reduce the cumulative response time of the workload W.
@@ -75,7 +75,7 @@ In the problem, each machine provides a random reward from a probability distrib
 
 The multi-armed bandit problem models an agent that simultaneously attempts to acquire new knowledge (called "exploration") and optimize his or her decisions based on existing knowledge (called "exploitation"). The agent attempts to balance these competing tasks in order to maximize his total value over the period of time considered.
 
-- [] Add Mathematical description of MABs from Wikipedia for easy access.
+- [ ] Add Mathematical description of MABs from Wikipedia for easy access.
 
 ### [University of Maryland](http://www.cs.umd.edu/~slivkins/CMSC858G-fall16/Lecture2_PartI.pdf)
 
@@ -87,9 +87,9 @@ The lecture also gives a nice set of examples which might be useful in explainin
 
 The notion of reward here is the use of regret. Maximise reward -> minimize regret. Regret is just the difference between the expected reward from the best arm and the average reward accumulated thus far by the algorithm. This is called regret because if shows how much the algorithm regrets not knowing what the best arm was. The regret given previously is expected regret and not realized regret. It might not make much sense to talk about realized regret because of the fact that. Different types of regret criterion.
 
-- [] Add maths here.
-- [] Clearly re-read the last section on regret.
-- [] Read section 4.
+- [ ] Add maths here.
+- [ ] Clearly re-read the last section on regret.
+- [ ] Read section 4.
 
 ### [ICML Tutorial on *bandits*](https://sites.google.com/site/banditstutorial/)
 
@@ -120,10 +120,10 @@ Input are a set of queries and the current configuration of the database in term
 #### Ideas from paper
 
 1. There should exist a drop function. It will allow for a configuration that makes a lot more sense (Not sure if this was not done due to complexity). Possible model. Example model:
-  * If n (number of indices) = 0, the possible operation add_index() (with the hope that indexing makes something better)
-  * If n > 0 and n < k then possible actions: add_index() and drop_index() or add_index
-  * If n = k  possible action: add_index() and drop_index().
-  Can even remove the dropping from 2. if too complex to do.
+    * If n (number of indices) = 0, the possible operation add_index() (with the hope that indexing makes something better)
+    * If n > 0 and n < k then possible actions: add_index() and drop_index() or add_index
+    * If n = k  possible action: add_index() and drop_index().
+   Can even remove the dropping from 2. if too complex to do.
 
 ### [Cuttlefish: A Lightweight Primitive for Adaptive Query Processing](https://arxiv.org/pdf/1802.09180.pdf)
 
