@@ -1,6 +1,6 @@
 # Databases and Machine Learning
 
-## Introduction to Self-Driving DBs [CMU Article](http://www.cs.cmu.edu/~pavlo/blog/2018/04/what-is-a-self-driving-database-management-system.html)
+## Introduction to Self-Driving DBs - [CMU Article](http://www.cs.cmu.edu/~pavlo/blog/2018/04/what-is-a-self-driving-database-management-system.html)
 
 Using ML to automate a DB's runtime operations and physical design is a hot research topic. This new class of DBs are called self-driving DBs. Example, [Peloton](https://pelotondb.io/) created by Andy Pavlo at CMU. 
 
@@ -75,22 +75,55 @@ In the problem, each machine provides a random reward from a probability distrib
 
 The multi-armed bandit problem models an agent that simultaneously attempts to acquire new knowledge (called "exploration") and optimize his or her decisions based on existing knowledge (called "exploitation"). The agent attempts to balance these competing tasks in order to maximize his total value over the period of time considered.
 
-The multi-armed bandit can be seen as a set of real distributions {\displaystyle B=\{R_{1},\dots ,R_{K}\}} B=\{R_{1},\dots ,R_{K}\}, each distribution being associated with the rewards delivered by one of the {\displaystyle K\in \mathbb {N} ^{+}} K\in \mathbb {N} ^{+} levers.
-
-
+- [] Add Mathematical description of MABs from Wikipedia for easy access.
 
 ### [University of Maryland](http://www.cs.umd.edu/~slivkins/CMSC858G-fall16/Lecture2_PartI.pdf)
 
-Covers mutli-arm bandits with independent and identically distributed rewards.
+Covers mutli-arm bandits with independent and identically distributed rewards. The learner selects an arm from the list of arms at each time step as the learning progresses (Note: arms and actions used interchangably in this lecture). After taking action a_t at timestep t a reward for this action is realised and observed by the algorithm. The Horizon is the amount of time the process is going to go on for. The process is repeated until the end of the time-horizon is reached. Goal: Gather as much cumulative reward as possible.
+
+It’s important to emphasize that the algorithm observes only the reward for the selected action, not all the other actions that could have been selected, that is why it is called a bandit feedback setting. The rewards for each action are independent of all the other actions and they are identically distributed for all actions (which means the probability of a reward r is the same for each arm?). The rewards are assumed to be in the range [0, 1]. Every time this action is chosen, the reward is sampled independently from this distribution. It is crucial that this distribution is unknown to the algorithm, and does not change over time.
+
+The lecture also gives a nice set of examples which might be useful in explaining Bandit Algorithms to someone who might not know anything about them.
+
+The notion of reward here is the use of regret. Maximise reward -> minimize regret. Regret is just the difference between the expected reward from the best arm and the average reward accumulated thus far by the algorithm. This is called regret because if shows how much the algorithm regrets not knowing what the best arm was. The regret given previously is expected regret and not realized regret. It might not make much sense to talk about realized regret because of the fact that. Different types of regret criterion.
+
+- [] Add maths here.
+- [] Clearly re-read the last section on regret.
+- [] Read section 4.
+
+### [ICML Tutorial on *bandits*](https://sites.google.com/site/banditstutorial/)
+
+Here the user/player is called a forecaster. Forecaster chooses an arm (only one arm) and the reward for only that arm is displayed to the forecaster.
+
+The enviromnet can be stochastic or adversarial.
 
 
+### Possible Issues
 
+1. Bandits assume that the underlying distribution of the rewards doesn't change over time. In a databbase I would imagine that the distribution of rewards and even the range would change over time.
+2. Rewards from changing the same knob will be the same if the conditions are assumed to be the same over a long period of time.
 
+## Similar Work
 
+### [The Case for Automatic Database Administration using Deep Reinforcement Learning](https://arxiv.org/pdf/1801.05643.pdf)
 
+DBMS is a large and complex piece of software. It has lead to the job of a DBA. DBAs tend to use experience and intuition as much as they use the database advisory tools that different vendors seem to pack along with their DBMS. Since both intution and experience are deeply embedded into the field of ML it makes sense to try to teach a ML model to do the job of a DB admin. More specfically Deep Reinforcement Learning has proved to be an interesting candidate for problems with really large search spaces and complex problems.
 
+#### Deep Reinforcement Learning
 
+Deep Reinforcement Learning does not require any expected outputs. The training is completely driven by so called rewards, that tell thelearner whether a taken action lead to a positive or a negative result on the input. Dependingon the outcome, the neural network is encouraged or discouraged to consider the action on this input in the future.
 
+#### Usage
+
+Input are a set of queries and the current configuration of the database in terms of the indexes. 
+
+#### Ideas from paper
+
+1. There should exist a drop function. It will allow for a configuration that makes a lot more sense (Not sure if this was not done due to complexity). Possible model. Example model:
+  * If n (number of indices) = 0, the possible operation add_index() (with the hope that indexing makes something better)
+  * If n > 0 and n < k then possible actions: add_index() and drop_index() or add_index
+  * If n = k  possible action: add_index() and drop_index().
+  Can even remove the dropping from 2. if too complex to do.
 
 
 
