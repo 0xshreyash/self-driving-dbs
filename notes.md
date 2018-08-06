@@ -174,7 +174,24 @@ this becomes a problem. To mitigate this problem, cuttlefish stores only
 one state per epoch and only merges new states with old ones if they pass
 a statistical similarity test otherwise, old states are replaced.
 
-#### Questions
+#### Thoughts
+
+Section 4 and 6 look to be the meat of what we are interested in. Section 5
+pertaining to the distributed stuff is a really nice read but it doesn't add
+value to our project.
+
+
+##### Questions
+
+I don't know how they do pairwise similarity for when the workload is changing over time.
+I don't quite understand how the paper is actually dealing with it. It doesn't feel like the
+right approach to me. 
+
+What does scale factor mean?
+
+##### Other work worth reading:
+
+(https://db.cs.cmu.edu/papers/2017/p1009-van-aken.pdf)
 
 
 
