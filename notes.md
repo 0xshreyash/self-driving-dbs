@@ -127,6 +127,57 @@ Input are a set of queries and the current configuration of the database in term
 
 ### [Cuttlefish: A Lightweight Primitive for Adaptive Query Processing](https://arxiv.org/pdf/1802.09180.pdfv)
 
-Uses MAB to find proper optimisers.
+The main objective here was to build a general purpose (query) optimizer which models
+the problem as a MAB and tries to find the optimal solution using reinforcement
+learning whilst using minimal computational resources. It uses the notion of operators, which can be thought of directives
+in a data processing pipeline e.g. choosing a regex library, choosing physical
+operators in SQL queries. Cuttlefish can work within a distributed data
+processing system and it can cope with dynamic data ie. data that changes
+so much so that optimal operators in a specific point in the pipeline can
+change with time. Cuttlefish is thus meant to be an upgrade over rule based
+optimization which does not adapt to chaging workloads.
+
+Cuttlefish provides developers with a simple API that can be injected in their
+pipeline. It chooses the appropriate operator and then is fed the output metrics,
+such as latency (as reward), which it uses to adjust itself. Cuttlefish actually
+extends Spark 2.2 and the first author of the paper is someone who has worked on
+Spark SQL which is why I think they chose to work with Spark in the first place.
+
+Cuttlefish uses Thompson sampling to solve the MAB problem, which associates
+a Gaussian distribution to each arm with unknown means and variances. To do 
+contexts it uses contextual Thomson Sampling with a linearized model (has been explained in Appendix)
+*TODO: Write-up for the contextual model.*
+
+This application also runs in a distributed environment. Here each machine
+has an agent daemon installed which keeps a local state for that machine.
+All of the threads within that machine share that state using locking mechanisms.
+There is also a master node that stores global state. Agent nodes push their
+local states (from time to time, not after each round) to the master node and pull the global state from the master at
+a fixed interval (which is more than one round), asynchronously. The master also has the job of taking the
+local states from all of the agent nodes and aggregating them. The local states
+allow a tuner for a certain thread to not have to wait to communicate with the global state to
+use its own findings.
+
+Cuttlefish also allows for the option of contextual based learning. Here
+information such as input dimensions is input into the tuner so that it
+knows which parameters might be of importance. If no context is provided the
+algorithm will just learn to return the best physical operator on average.
+Context allows Cuttlefish to adapt to changing workloads and also do more than
+just choosing the best expected physical operator for a logical operation.
+
+Finally, it is important to note when dealing with a cluster that runtime ie.
+the reward that is being optimized can be affected by the type of physical
+machine that the program is running on and due to such differences what
+might be optimal in one machine might not be optimal on another. But if we
+are storing a global state, that constantly gets pushed to all of the agents,
+this becomes a problem. To mitigate this problem, cuttlefish stores only
+one state per epoch and only merges new states with old ones if they pass
+a statistical similarity test otherwise, old states are replaced.
+
+#### Questions
+
+
+
+
 
 
