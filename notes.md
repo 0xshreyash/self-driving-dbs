@@ -191,7 +191,7 @@ What does scale factor mean?
 
 ##### Other work worth reading:
 
-(https://db.cs.cmu.edu/papers/2017/p1009-van-aken.pdf)
+* https://db.cs.cmu.edu/papers/2017/p1009-van-aken.pdf
 
 
 
