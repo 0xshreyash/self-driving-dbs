@@ -176,10 +176,12 @@ a statistical similarity test otherwise, old states are replaced.
 
 #### Thoughts
 
-Section 4 and 6 look to be the meat of what we are interested in. Section 5
+* Section 4 and 6 look to be the meat of what we are interested in. Section 5
 pertaining to the distributed stuff is a really nice read but it doesn't add
 value to our project.
 
+* Can extend Cuttlefish to be able to choose the most valuable features given a large
+aggreagate of data that the program might have about different operations.
 
 ##### Questions
 
