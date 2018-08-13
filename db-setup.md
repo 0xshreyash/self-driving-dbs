@@ -152,6 +152,6 @@ def main():
             result = subprocess.run(['./qgen', '-r', str(i)], stdout=subprocess.PIPE)
             f.write(result.stdout.decode('utf-8'))
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     main()
 ```
