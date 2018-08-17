@@ -14,4 +14,4 @@ They have been approved by Ben and Renata for my literature review, but I'm not 
 13.	Kuleshov - Algorithms for the Multi-armed Bandit Problem (microsoft academic)
 14.	Agrawal & Goyal - Analysis of Thompson Sampling for the Multi-armed Bandit Problem (google it)
 15.	**Kaftan et al. - Cuttlefish (you have read)**
-16. [Regularized Cost-Model Oblivious Database](Tuning with Reinforcement Learning[https://www.google.com/url?hl=en&q=http://pierre.senellart.com/publications/basu2016regularized.pdf&source=gmail&ust=1534578424199000&usg=AFQjCNFkp410rLYEAmuUSG3o5DhV3vVOXQ)
+16. [Regularized Cost-Model Oblivious Database](https://www.google.com/url?hl=en&q=http://pierre.senellart.com/publications/basu2016regularized.pdf&source=gmail&ust=1534578424199000&usg=AFQjCNFkp410rLYEAmuUSG3o5DhV3vVOXQ)
