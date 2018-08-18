@@ -9,7 +9,7 @@ They have been approved by Ben and Renata for my literature review, but I'm not 
 8.	**[Sharma, Schuhknecht & Dittrich - Automatic Database Administration using Deep Reinforcement Learning](https://arxiv.org/pdf/1801.05643.pdf)**
 9.	Gittins - Bandit Processes and Dynamic Allocation Indices (microsoft academic)
 10.	[**Bandits UMD**](http://www.cs.umd.edu/~slivkins/CMSC858G-fall16/Lecture2_PartI.pdf)
-11.	[**Bandit ICML Tutorial***](https://sites.google.com/site/banditstutorial/)
+11.	[**Bandit ICML Tutorial**](https://sites.google.com/site/banditstutorial/)
 12.	Audibert, Munos & Szepesvari - Tuning Bandit in Stochastic Environments (microsoft academic)
 13.	Kuleshov - Algorithms for the Multi-armed Bandit Problem (microsoft academic)
 14.	Agrawal & Goyal - Analysis of Thompson Sampling for the Multi-armed Bandit Problem (google it)
