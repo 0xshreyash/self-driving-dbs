@@ -4,7 +4,7 @@ They have been approved by Ben and Renata for my literature review, but I'm not 
 3.	Agrawal, Chaudhuri & Narasayya - Automated Selection of Materialized Views and Indexes for SQL Databases (from blog)
 4.	Pavlo et al. - Self-Driving DBMS (from microsoft academic)
 5.	Hammer & Chan - Index Selection (google scholar)
-6.	Ioannidis - Query Optimization (see above)
+6.	[Ioannidis - Query Optimization](https://graal.ens-lyon.fr/~yrobert/henri3/ioannidis96query.pdf)
 7.	Ma et al. - Forecasting Sigmod 18 (microsoft academic)
 8.	**[Sharma, Schuhknecht & Dittrich - Automatic Database Administration using Deep Reinforcement Learning](https://arxiv.org/pdf/1801.05643.pdf)**
 9.	Gittins - Bandit Processes and Dynamic Allocation Indices (microsoft academic)
