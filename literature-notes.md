@@ -196,6 +196,30 @@ What does scale factor mean?
 * https://db.cs.cmu.edu/papers/2017/p1009-van-aken.pdf
 
 
+### Graphically viewing query execution
+
+Blog post [1](https://www.mssqltips.com/sqlservertip/1856/sql-server-query-execution-plans-in-sql-server-management-studio/). Simply explains how to use the graphical execution plan. There are two types of graphical execution plans estimate execution plans and actual execution plan. 
+
+
+### AutoAdmin - what-if paper
+
+Mostly talks about how they created a low-cost model which tries to predict the effect of certain workloads and index creation on the database. This paper talks about hypothetical configuration analysis. To do the analyis they do not create any indexes or try to modify the tables in the db. They try to look at what queries the optimizer finds useful because if it doens't find a query useful then it is unlikelt to use it. The optimizer bases it's decisions on the basis of random sampling of certain statistics. 
+
+To be able to CREATE AN INDEX WITH STATISTICS ONLY USE command like CREATE INDEX <name> ON <table-name> WITH STATISTICS_ONLY.
+
+##### Questions and other points of discussion.
+
+1. If a table has a uniqueness constraint on a column C, then an index on C must be part of every configuration. Why? Page. 368 Bottom right in Section 3 point (b).
+
+2. What is a clustering index?
+
+3. It probably uses the same query multiple times. Might be a good or bad idea depending on perspective.
+
+4. Bottom left corner of page 371.
+
+5. What does a connection-specific way mean? Is it just specific to the connection i.e. the hca.
+
+### [Query Optimization Paper](https://graal.ens-lyon.fr/~yrobert/henri3/ioannidis96query.pdf)
 
 
 
